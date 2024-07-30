@@ -1,0 +1,5 @@
+# Build output
+/tmp/
+
+# Configuration files
+.air.toml

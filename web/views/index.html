@@ -1,0 +1,71 @@
+{{ block "index" . }}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>thumbread</title>
+        <link rel="stylesheet" href="/css/style.css" />
+        <style>
+            .container {
+                text-align: center;
+            }
+            .form-control {
+                margin-left: auto;
+                margin-right: auto;
+                text-align: left;
+                margin-top: 2rem;
+                display: flex;
+                flex-direction: column;
+                gap: 1rem;
+                max-width: 336px;
+            }
+            input {
+                padding: 0.8rem;
+                border: none;
+                border-radius: 0.5rem;
+            }
+            #submit {
+                cursor: pointer;
+                border: none;
+                display: block;
+                text-align: center;
+                text-decoration: none;
+                color: inherit;
+
+                padding: 1rem;
+                background-color: rgb(0, 128, 255);
+                border-radius: 0.5rem;
+                box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.2);
+            }
+            #submit:hover {
+                background-color: rgb(77, 166, 255);
+                transition: background-color 0.2s linear;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <h1>ThumbRead</h1>
+            <div>
+                Generate a mobile-friendly version of any online&nbsp;text.
+            </div>
+
+            <div class="form-control">
+                <label for="url">Link to resource</label>
+                <input id="url" placeholder="https://..." />
+                <button id="submit">Generate</button>
+            </div>
+        </div>
+    </body>
+    <script>
+        const submitButton = document.querySelector("#submit");
+        submitButton.addEventListener("click", () => {
+            const link = document.querySelector("#url").value;
+            if (link) {
+                window.location.href = `/${link}`;
+            }
+        });
+    </script>
+</html>
+{{ end }}

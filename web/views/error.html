@@ -1,0 +1,30 @@
+{{ block "error" . }}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>error</title>
+        <link rel="stylesheet" href="/css/style.css" />
+        <style>
+            #error {
+                color: #e63a3a;
+            }
+            .container {
+                text-align: center;
+            }
+            a {
+                color: #007bff;
+                text-decoration: none;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <p>Sorry, we couldn't process that URL.</p>
+            <p id="error">500</p>
+            <a href="/">Return home</a>
+        </div>
+    </body>
+</html>
+{{ end }}
