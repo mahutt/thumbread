@@ -15,9 +15,7 @@
     </head>
     <body>
         <div class="container">
-            {{ range .content }}
-            <p>{{ . }}</p>
-            {{ end }}
+            {{ range .content }} {{ .Render }} {{ end }}
         </div>
     </body>
 </html>
