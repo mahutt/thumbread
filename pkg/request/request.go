@@ -132,10 +132,12 @@ func extractHTMLElements(n *html.Node) []HTMLElement {
 
 	var f func(*html.Node)
 	f = func(n *html.Node) {
-		if n.Type == html.TextNode {
+		if n.Type == html.ElementNode && (n.Data == "style" || n.Data == "script") {
+			return
+		} else if n.Type == html.TextNode {
 			content := strings.TrimSpace(n.Data)
 			if content != "" {
-				paragraph.Content += n.Data
+				paragraph.Content += content
 			}
 		} else if n.Type == html.ElementNode && n.Data == "img" {
 			if paragraph.Content != "" {
