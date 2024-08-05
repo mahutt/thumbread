@@ -42,6 +42,7 @@ func main() {
 	e := echo.New()
 
 	e.Static("/css", "web/css")
+	e.File("/favicon.ico", "web/favicon.ico")
 
 	e.Renderer = newTemplate()
 	e.Use(middleware.Logger())
