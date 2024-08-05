@@ -3,6 +3,7 @@ package main
 import (
 	"html/template"
 	"io"
+	"net/http"
 
 	"github.com/labstack/echo/v4"
 	"github.com/labstack/echo/v4/middleware"
@@ -31,7 +32,7 @@ func handleUrl(c echo.Context) error {
 	url := c.Param("url")
 	content, err := request.GetContent(url)
 	if err != nil {
-		return c.Render(500, "error", nil)
+		return c.Render(http.StatusBadRequest, "error", nil)
 	}
 	return c.Render(200, "content", map[string]interface{}{
 		"content": content,
